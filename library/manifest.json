@@ -9,7 +9,7 @@
     "animationStatsId": "assist_monstro_AnimationStats",
     "hitboxStatsId": "assist_monstro_HitboxStats",
     "scriptId": "assist_monstro_Script",
-    "costumesId": "assisttemplateCostumes",
+    "costumesId": "assist_monstro_Costumes",
     "metadata": {
       "ui":{
         "entityId":"menu",

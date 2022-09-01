@@ -8,7 +8,7 @@ STATE_PREJUMP = 3;
 STATE_JUMP = 4;
 
 {
-	spriteContent: self.getResource().getContent("assist-monstro"),
+	spriteContent: self.getResource().getContent("assist_monstro"),
 	initialState: STATE_FALL,
 	stateTransitionMapOverrides: [
 		STATE_FALL => {
@@ -29,5 +29,5 @@ STATE_JUMP = 4;
 	],
 	gravity: 0,
 	terminalVelocity: 20,
-	assistChargeValue:50
+	assistChargeValue: 1
 }

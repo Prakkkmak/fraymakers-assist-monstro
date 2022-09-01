@@ -1,6 +1,6 @@
 // Animation stats for Template Assist
 {
-	fqll: {},
+	fall: {},
 	land: {},
 	shoot: {},
 	prejump: {},
