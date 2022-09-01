@@ -1,0 +1,18 @@
+{
+  "export": true,
+  "guid": "a4ab2327-9dad-4bbe-828f-0b44a41cf84e",
+  "id": "assist_monstro_Script",
+  "language": "hscript",
+  "pluginMetadata": {
+    "com.fraymakers.FraymakersMetadata": {
+      "objectType": "ASSIST",
+      "version": "0.1.0"
+    }
+  },
+  "plugins": [
+    "com.fraymakers.FraymakersMetadata"
+  ],
+  "tags": [
+  ],
+  "version": 1
+}
