@@ -1,0 +1,18 @@
+{
+  "export": true,
+  "guid": "50581a79-4cb5-4b16-8df3-2ac4ad97c838",
+  "id": "assisttemplateProjectileScript",
+  "language": "",
+  "pluginMetadata": {
+    "com.fraymakers.FraymakersMetadata": {
+      "objectType": "PROJECTILE",
+      "version": "0.1.0"
+    }
+  },
+  "plugins": [
+    "com.fraymakers.FraymakersMetadata"
+  ],
+  "tags": [
+  ],
+  "version": 1
+}
