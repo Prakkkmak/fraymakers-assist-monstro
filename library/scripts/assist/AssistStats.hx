@@ -1,30 +1,30 @@
 // Assist stats for Template Assist
 
 // Define some states for our state machine
-STATE_IDLE = 0;
-STATE_JUMP = 1;
-STATE_FALL = 2;
-STATE_SLAM = 3;
-STATE_OUTRO = 4;
+STATE_FALL = 0;
+STATE_LANDING = 1;
+STATE_SHOOT = 2;
+STATE_PREJUMP = 3;
+STATE_JUMP = 4;
 
 {
 	spriteContent: self.getResource().getContent("assisttemplate"),
-	initialState: STATE_IDLE,
+	initialState: STATE_FALL,
 	stateTransitionMapOverrides: [
-		STATE_IDLE => {
-			animation: "idle"
-		},
-		STATE_JUMP => {
-			animation: "jump"
-		},
 		STATE_FALL => {
 			animation: "fall"
 		},
-		STATE_SLAM => {
-			animation: "slam"
+		STATE_LAND => {
+			animation: "land"
 		},
-		STATE_OUTRO => {
-			animation: "outro"
+		STATE_SHOOT => {
+			animation: "shoot"
+		},
+		STATE_PREJUMP => {
+			animation: "prejump"
+		},
+		STATE_JUMP => {
+			animation: "jump"
 		}
 	],
 	gravity: 0,

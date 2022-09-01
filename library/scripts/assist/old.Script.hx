@@ -45,7 +45,6 @@ function update(){
 			//When monstro touch the ground
 			if(self.isOnFloor()){
 				self.toState(STATE_LAND); 
-				self.attachToFloor();
 			}
 			break;
 		case STATE_LAND:
@@ -56,23 +55,60 @@ function update(){
 			break;
 		case STATE_SHOOT:
 			if(self.finalFramePlayed){
-				self.toState(STATE_PREJUMP);
+				self.toState(STATE_SHOOT);
 			}
 			break;
 		case STATE_PREJUMP:
 			if(self.finalFramePlayed){
-				self.toState(STATE_JUMP);
-				self.unattachFromFloor();
-				self.setXVelocity(100);
+				self.toState(STATE_SHOOT);
 			}
 			break;
 		case STATE_JUMP:
-			if (fadeOutComplete() && self.finalFramePlayed()) {
-				// Destroy
-				self.destroy();
-			}
 			break;
 	}
+
+
+	// OLD =>
+	// Behavior for each state
+	if (self.inState(STATE_IDLE)) {
+		if (self.finalFramePlayed()) {
+			// Bounce into air, activate gravity, and switch to jump state
+			self.unattachFromFloor();
+			self.setYVelocity(-20);
+			self.updateGameObjectStats({ gravity: 1 });
+			self.toState(STATE_JUMP); 
+		}
+	} else if (self.inState(STATE_JUMP)) {
+		// Wait until assist starts to fall
+		if (self.getYVelocity() >= 0) {
+			// Move to fall state
+			self.toState(STATE_FALL); 
+		}
+	} else if (self.inState(STATE_FALL)) {
+		// Wait until assist lands
+		if (self.isOnFloor()) {
+			// Fire two projectiles and switch to slam state
+			var proj1 = match.createProjectile("assisttemplateProjectile", self);
+			var proj2 = match.createProjectile("assisttemplateProjectile", self);
+			proj2.flip(); // Flip the other projectile the opposite way
+			self.toState(STATE_SLAM); 
+		}
+	} else if (self.inState(STATE_SLAM)) {
+		if (self.finalFramePlayed()) {
+			// Move to outro state and start fading away
+			self.toState(STATE_OUTRO); 
+			startFadeOut();
+		}
+	} else if (self.inState(STATE_OUTRO)) {
+		if (fadeOutComplete() && self.finalFramePlayed()) {
+			// Destroy
+			self.destroy();
+		}
+	}
+}
+
+
+function onTeardown(){
 }
 
 function shootTears(){
