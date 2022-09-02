@@ -1,0 +1,13 @@
+{
+  "export": true,
+  "guid": "5941d4b9-772b-427a-89c1-29ce90e549a1",
+  "id": "assist_monstro_HitboxStats",
+  "language": "hscript",
+  "pluginMetadata": {
+  },
+  "plugins": [
+  ],
+  "tags": [
+  ],
+  "version": 1
+}

@@ -2,13 +2,13 @@
 
 // Define some states for our state machine
 STATE_FALL = 0;
-STATE_LANDING = 1;
+STATE_LAND = 1;
 STATE_SHOOT = 2;
 STATE_PREJUMP = 3;
 STATE_JUMP = 4;
 
 {
-	spriteContent: self.getResource().getContent("assisttemplate"),
+	spriteContent: self.getResource().getContent("assist_monstro"),
 	initialState: STATE_FALL,
 	stateTransitionMapOverrides: [
 		STATE_FALL => {
@@ -29,5 +29,5 @@ STATE_JUMP = 4;
 	],
 	gravity: 0,
 	terminalVelocity: 20,
-	assistChargeValue:50
+	assistChargeValue: 1
 }

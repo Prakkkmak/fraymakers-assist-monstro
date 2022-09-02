@@ -1,15 +1,15 @@
 {
-  "resourceId": "assisttemplate",
+  "resourceId": "assist_monstro",
   "content": [{
-    "id": "assisttemplate",
-    "name": "Assist Template",
-    "description": "An example assist character for Fraymakers.",
+    "id": "assist_monstro",
+    "name": "Assist Monstro",
+    "description": "Monstro",
     "type": "assist",
-    "objectStatsId": "assisttemplateAssistObjectStats",
-    "animationStatsId": "assisttemplateAnimationStats",
-    "hitboxStatsId": "assisttemplateHitboxStats",
-    "scriptId": "assisttemplateScript",
-    "costumesId": "assisttemplateCostumes",
+    "objectStatsId": "assist_monstro_AssistObjectStats",
+    "animationStatsId": "assist_monstro_AnimationStats",
+    "hitboxStatsId": "assist_monstro_HitboxStats",
+    "scriptId": "assist_monstro_Script",
+    "costumesId": "assist_monstro_Costumes",
     "metadata": {
       "ui":{
         "entityId":"menu",

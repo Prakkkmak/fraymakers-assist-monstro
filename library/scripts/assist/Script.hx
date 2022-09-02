@@ -10,71 +10,61 @@ STATE_JUMP = 4;
 
 // STATE_FALL -> STATE_LAND -> STATE_SHOOT -> STATE_PREJUMP -> STATE_JUMP
 
-var SPAWN_X_DISTANCE = 30; // How far in front of player to spawn
-var SPAWN_HEIGHT = 100; // How hight up from player to spawn
+var SPAWN_X_DISTANCE = 0; // How far in front of player to spawn
+var SPAWN_HEIGHT = 200; // How hight up from player to spawn
 
 // Runs on object init
 function initialize(){
 
-	// Spawn in position
-	spawnPosition()
-
-	// Add fade in effect
 	startFadeIn();
-}
 
-function spawnPosition(){
 	// Face the same direction as the user
 	if (self.getOwner().isFacingLeft()) {
 		self.faceLeft();
-	}
-	else {
-		self.faceRight();
 	}
 	
 	// Reposition relative to the user
 	repositionToEntityEcb(self.getOwner(), self.flipX(SPAWN_X_DISTANCE), -SPAWN_HEIGHT);
 
+	// Add fade in effect
 	self.unattachFromFloor();
 	self.updateGameObjectStats({ gravity: 1 });
+	
 }
 
 function update(){
-	switch(self.inState){
-		case STATE_FALL:
-			//When monstro touch the ground
-			if(self.isOnFloor()){
-				self.toState(STATE_LAND); 
-				self.attachToFloor();
-			}
-			break;
-		case STATE_LAND:
-			if(self.finalFramePlayed){
-				self.toState(STATE_SHOOT);
-				shootTears();
-			}
-			break;
-		case STATE_SHOOT:
-			if(self.finalFramePlayed){
-				self.toState(STATE_PREJUMP);
-			}
-			break;
-		case STATE_PREJUMP:
-			if(self.finalFramePlayed){
-				self.toState(STATE_JUMP);
-				self.unattachFromFloor();
-				self.setXVelocity(100);
-			}
-			break;
-		case STATE_JUMP:
-			if (fadeOutComplete() && self.finalFramePlayed()) {
-				// Destroy
-				self.destroy();
-			}
-			break;
+
+	if (self.inState(STATE_FALL)) {	
+		//When monstro touch the ground
+		if(self.isOnFloor()){
+			self.toState(STATE_LAND, "land"); 
+		}
+	}
+	else if (self.inState(STATE_LAND)) {
+		if(self.finalFramePlayed()){
+			self.toState(STATE_SHOOT, "shoot");
+		}
+	}
+	else if (self.inState(STATE_SHOOT)) {
+		if(self.finalFramePlayed()){
+			self.toState(STATE_PREJUMP, "prejump");
+		}
+	}
+	else if (self.inState(STATE_PREJUMP)) {
+		if(self.finalFramePlayed()){
+			self.updateGameObjectStats({ gravity: 0.3 });
+			self.setYVelocity(-20);
+			self.toState(STATE_JUMP, "jump");
+		}
+	}
+	else if (self.inState(STATE_JUMP)) {
+		if (self.finalFramePlayed()) {
+			// Destroy
+			self.destroy();
+		}
 	}
 }
 
-function shootTears(){
-	//TODO
+
+function onTeardown(){
 }

@@ -1,0 +1,13 @@
+{
+  "export": true,
+  "guid": "023ccff6-04fc-4294-8ec6-db2f3ec1ae0b",
+  "id": "assist_monstro_AnimationStats",
+  "language": "hscript",
+  "pluginMetadata": {
+  },
+  "plugins": [
+  ],
+  "tags": [
+  ],
+  "version": 1
+}
