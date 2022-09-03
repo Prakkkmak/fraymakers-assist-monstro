@@ -10,8 +10,8 @@ STATE_JUMP = 4;
 
 // STATE_FALL -> STATE_LAND -> STATE_SHOOT -> STATE_PREJUMP -> STATE_JUMP
 
-var SPAWN_X_DISTANCE = 0; // How far in front of player to spawn
-var SPAWN_HEIGHT = 200; // How hight up from player to spawn
+var SPAWN_X_DISTANCE = 100; // How far in front of player to spawn
+var SPAWN_HEIGHT = 150; // How hight up from player to spawn
 
 // Runs on object init
 function initialize(){
@@ -29,6 +29,8 @@ function initialize(){
 	// Add fade in effect
 	self.unattachFromFloor();
 	self.updateGameObjectStats({ gravity: 1 });
+	self.setScaleX(2);
+	self.setScaleY(2);
 	
 }
 

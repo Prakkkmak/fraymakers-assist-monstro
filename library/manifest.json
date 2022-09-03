@@ -14,16 +14,16 @@
       "ui":{
         "entityId":"menu",
         "render":{
-          "animation":"assist_full"
+          "animation":"monstro_full"
         },
         "hud":{
-          "animation":"assist_hud"
+          "animation":"monstro_hud"
         },
         "css":{
-          "animation":"assist_css",
+          "animation":"monstro_css",
           "info":{
-            "game":"Fraymakers",
-            "description":"My first assist character."
+            "game":"Monstro",
+            "description":"Monstro."
           }
         }
       }
