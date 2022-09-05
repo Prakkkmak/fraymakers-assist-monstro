@@ -1,33 +1,19 @@
 // API Script for Assist Template Projectile
 
-var LIFE_TIMER = 60 * 4; // max life of projectile
-
-var life = self.makeInt(LIFE_TIMER);
-
 function initialize(){
-	// Set up wall hit event
-	self.addEventListener(EntityEvent.COLLIDE_WALL, onWallHit, { persistent: true });
-
+	// Set up wall and ground hit event
+	self.addEventListener(EntityEvent.COLLIDE_WALL, self.destroy(), { persistent: true });
+	self.addEventListener(EntityEvent.COLLIDE_GROUND, self.destroy(), { persistent: true });
 	// Set up horizontal reflection
-	enableReflectionListener({ mode: "X", replaceOwner: true });
-}
+	// enableReflectionListener({ mode: "X", replaceOwner: true });
+	self.updateGameObjectStats({ gravity: 1 });
+	self.setYSpeed(Random.int(10,30));
+	self.setXSpeed(Random.int(10,30));
 
-function onWallHit(event) {
-	self.destroy();
 }
 
 function update() {
-	if (self.inState(PState.ACTIVE)) {
-		// Give some horizontal speed
-		self.setXSpeed(10);
 
-		// Subtract 1 from life counter
-		life.dec();
-		// If life runs out, destroy
-		if (life.get() <= 0) {
-			self.destroy();
-		}
-	}
 }
 function onTeardown(){
 }

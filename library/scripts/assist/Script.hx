@@ -49,6 +49,7 @@ function update(){
 	}
 	else if (self.inState(STATE_SHOOT)) {
 		if(self.finalFramePlayed()){
+			shootProjectiles();
 			self.toState(STATE_PREJUMP, "prejump");
 		}
 	}
@@ -69,4 +70,9 @@ function update(){
 
 
 function onTeardown(){
+}
+
+function shootProjectiles(){
+	var proj1 = match.createProjectile("monstro_tear_Projectile", self);
+	var proj2 = match.createProjectile("monstro_tear_Projectile", self);
 }

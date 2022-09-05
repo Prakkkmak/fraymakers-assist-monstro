@@ -29,11 +29,11 @@
       }
     }
   },{
-    "id": "assisttemplateProjectile",
+    "id": "monstro_tear_Projectile",
     "type": "projectile",
-    "objectStatsId": "assisttemplateProjectileObjectStats",
-    "animationStatsId": "assisttemplateProjectileAnimationStats",
-    "hitboxStatsId": "assisttemplateProjectileHitboxStats",
-    "scriptId": "assisttemplateProjectileScript"
+    "objectStatsId": "monstro_tear_ProjectileObjectStats",
+    "animationStatsId": "monstro_tear_ProjectileAnimationStats",
+    "hitboxStatsId": "monstro_tear_ProjectileHitboxStats",
+    "scriptId": "monstro_tear_ProjectileScript"
   }]
 }
